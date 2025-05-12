@@ -1,0 +1,37 @@
+import React from "react";
+import AnimatedWeatherIcon from "@/components/AnimatedWeatherIcon";
+import { Card, CardContent } from "@/components/ui/card";
+
+export default function LottieWeatherIconStoryboard() {
+  const conditions = [
+    "sunny", 
+    "cloudy", 
+    "partlyCloudy", 
+    "rainy", 
+    "snowy", 
+    "stormy", 
+    "foggy", 
+    "windy", 
+    "loading"
+  ];
+
+  return (
+    <div className="bg-white p-6">
+      <h2 className="text-2xl font-bold mb-4">Weather Icons</h2>
+      <div className="grid grid-cols-3 gap-4">
+        {conditions.map((condition) => (
+          <Card key={condition} className="overflow-hidden">
+            <CardContent className="p-4 flex flex-col items-center">
+              <p className="mb-2 capitalize">{condition}</p>
+              <AnimatedWeatherIcon 
+                condition={condition} 
+                size={80} 
+                useLottie={false} 
+              />
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}

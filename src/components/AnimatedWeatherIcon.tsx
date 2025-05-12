@@ -21,7 +21,7 @@ interface AnimatedWeatherIconProps {
   // Optional props for Lottie animations
   useLottie?: boolean;
   animationData?: any;
-  animationPath?: string;
+  animationPath?: any;
 }
 
 const AnimatedWeatherIcon = ({
@@ -37,12 +37,12 @@ const AnimatedWeatherIcon = ({
   if (useLottie && (animationData || animationPath)) {
     return (
       <div
-        className={`bg-background ${className}`}
+        className={`${className}`}
         style={{ width: size, height: size }}
       >
         <Lottie
           animationData={animationData}
-          path={animationPath}
+          assetsPath={animationPath}
           loop={true}
           autoplay={true}
           style={{ width: size, height: size }}

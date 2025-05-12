@@ -36,7 +36,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import AnimatedWeatherIcon, { WeatherCondition } from "./AnimatedWeatherIcon";
-import ForecastSection from "./ForecastSection";
+import ForecastSection, { ForecastDay } from "./ForecastSection";
 
 interface WeatherData {
   location: string;
@@ -44,12 +44,6 @@ interface WeatherData {
   condition: string;
   humidity: number;
   windSpeed: number;
-}
-
-interface ForecastDay {
-  day: string;
-  temperature: number;
-  condition: string;
 }
 
 interface LocationOption {
@@ -354,9 +348,8 @@ const WeatherWidget = () => {
                 <AnimatedWeatherIcon
                   condition={weatherData.condition as WeatherCondition}
                   darkMode={darkMode}
-                  useLottie={false} // Set to true when you have your animation files ready
-                  // animationPath will be provided by you later
-                  // Example: animationPath={`/src/assets/lottie/${weatherData.condition}.json`}
+                  useLottie
+                  animationPath={import(`../assets/lottie/${weatherData.condition}.json`)}
                 />
               </div>
             </div>

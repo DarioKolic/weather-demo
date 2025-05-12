@@ -2,11 +2,11 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
-interface ForecastDay {
+export interface ForecastDay {
   day: string;
   temperature: number;
   condition: string;
-  date: string;
+  date?: string;
 }
 
 interface ForecastSectionProps {
